@@ -19,13 +19,13 @@ locale                   : "en-US"
 title                    : "Site Title"
 title_separator          : "-"
 subtitle                 : # site tagline that appears below site title in masthead
-name                     : "Your Name"
-description              : "An amazing website."
+name                     : "Ralph Desmangles"
+description              : "Student. Penetration Tester. Gamer"
 url                      : # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : # the subpath of your site, e.g. "/blog"
 repository               : # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
 teaser                   : # path of fallback teaser image, e.g. "/assets/images/500x300.png"
-logo                     : # path of logo image to display in the masthead, e.g. "/assets/images/88x88.png"
+logo                     : https://media-exp1.licdn.com/dms/image/C4E03AQEe6tuJ8kNAQQ/profile-displayphoto-shrink_200_200/0?e=1603929600&v=beta&t=uALwdb6sKFSaVW8L6JG94lwlUf3FxXEG1xGXxsS-rF0
 masthead_title           : # overrides the website title displayed in the masthead, use " " for no title
 # breadcrumbs            : false # true, false (default)
 words_per_minute         : 200

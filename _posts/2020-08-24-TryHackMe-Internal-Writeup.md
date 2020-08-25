@@ -244,12 +244,15 @@ root@internal:~#
 ![alt text](https://i.imgur.com/wpv9jvD.png "Root Flag")
 
 # Remediations
+**WordPress Application*
 - WordPress Admin password length should be greater than or equal to 15 characters.
 - Disable XMLRPC.php so attackers can't enumerate users.
 - Never store credentials in WordPress post.
+**WordPress Server**
 - Don't store user credentials in plaintext on server filesystem.
+**Jenkins (Docker Container)**
 - Jenkins Admin password length should be greater than or equal to 15 characters.
-- Don't store credentials in plain text, even if the filesystem is 'secure' / 'segregrated'. 
+- Don't store credentials in plain text, even if the filesystem is 'secure' / 'segregrated' in a virtual environment. 
 
 
 > Side Note: DB credentials to the WordPress Server were found on the server machine. If the WordPress site had a more extensive user database, then this could've lead to more passwords being found to use within the network. 

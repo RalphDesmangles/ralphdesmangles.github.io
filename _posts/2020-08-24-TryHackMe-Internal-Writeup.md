@@ -3,8 +3,20 @@ title:  "TryHackMe - Internal Writeup"
 search: true
 categories: 
   - TryHackMe
-last_modified_at: 2018-02-19T08:05:34-05:00
+last_modified_at: 2020-08-25T08:05:34-05:00
 ---
+![alt text](https://i.imgur.com/9yN2I9x.png "Internal Pic")
+Difficulty Rating: Hard
+Creator: [@TheMayor](https://tryhackme.com/p/TheMayor)
+
+Internal is supposed to a 'Penetration Testing Challenge' where simulate a security engineer conducting an external, web app, and internal assessment of the provided virtual environment. 
+
+# Summary 
+- WordPress Admin had a weak password.
+- Found plain text credentials on WordPress Server
+- Exploited an Internal Jenkins Instance to gain access to a Docker Container
+- Found plain text credentils to root on the Docker Container
+
 
 # Enumeration
 ***
@@ -231,6 +243,13 @@ root@internal:~#
 ```
 ![alt text](https://i.imgur.com/wpv9jvD.png "Root Flag")
 
+# Remediations
+- WordPress Admin password length should be greater than or equal to 15 characters.
+- Disable XMLRPC.php so attackers can't enumerate users.
+- Never store credentials in WordPress post.
+- Don't store user credentials in plaintext on server filesystem.
+- Jenkins Admin password length should be greater than or equal to 15 characters.
+- Don't store credentials in plain text, even if the filesystem is 'secure' / 'segregrated'. 
 
 
 > Side Note: DB credentials to the WordPress Server were found on the server machine. If the WordPress site had a more extensive user database, then this could've lead to more passwords being found to use within the network. 

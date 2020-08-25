@@ -8,6 +8,7 @@ last_modified_at: 2020-08-25T08:05:34-05:00
 ![alt text](https://i.imgur.com/9yN2I9x.png "Internal Pic")
 
 Difficulty Rating: Hard
+
 Creator: [@TheMayor](https://tryhackme.com/p/TheMayor)
 
 Internal is supposed to be a 'Penetration Testing Challenge' that simulates a security engineer conducting an external, web app, and internal assessment of the provided virtual environment. 

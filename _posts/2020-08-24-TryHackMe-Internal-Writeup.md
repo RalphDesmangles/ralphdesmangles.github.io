@@ -6,12 +6,14 @@ categories:
 last_modified_at: 2020-08-25T08:05:34-05:00
 ---
 ![alt text](https://i.imgur.com/9yN2I9x.png "Internal Pic")
+
 Difficulty Rating: Hard
 Creator: [@TheMayor](https://tryhackme.com/p/TheMayor)
 
-Internal is supposed to a 'Penetration Testing Challenge' where simulate a security engineer conducting an external, web app, and internal assessment of the provided virtual environment. 
+Internal is supposed to be a 'Penetration Testing Challenge' that simulates a security engineer conducting an external, web app, and internal assessment of the provided virtual environment. 
 
 # Summary 
+***
 - WordPress Admin had a weak password.
 - Found plain text credentials on WordPress Server
 - Exploited an Internal Jenkins Instance to gain access to a Docker Container
@@ -129,6 +131,7 @@ While browsing, I noticed a Private "To-Do List" post by `admin.`
 It looks like we found credentials for a user named `william`.
 
 # Initial Access
+***
 Since we have administrative access to the WordPress installation, we can upload PHP code to the server to gain a remote shell on our attacker machine. Head over to `http://internal.thm/blog/wp-admin/theme-editor.php` and place a [PHP Reverse shell](https://github.com/pentestmonkey/php-reverse-shell/blob/master/php-reverse-shell.php) into the `404.php` template.
 ![alt text](https://i.imgur.com/Byq9Zuk.png "Reverse Shell")
 
@@ -149,6 +152,7 @@ python -c 'import pty; pty.spawn("/bin/sh")'
 ```
 
 # Privilege Escalation (User)
+***
 Navigating around the fileshare, I found an interesting file called `wp-save.txt`.
 ```
 $ cat wp-save.txt
@@ -170,6 +174,7 @@ ssh aubreanna@internal.thm
 Along with the user flag in Aubreanna's home directory, we have a `jenkins.txt` file.
 
 # Privilege Escalation (Root)
+***
 ```
 $ cat jenkins.txt 
 
@@ -244,6 +249,7 @@ root@internal:~#
 ![alt text](https://i.imgur.com/wpv9jvD.png "Root Flag")
 
 # Remediations
+***
 **WordPress Application**
 - WordPress Admin password length should be greater than or equal to 15 characters.
 - Disable XMLRPC.php so attackers can't enumerate users.

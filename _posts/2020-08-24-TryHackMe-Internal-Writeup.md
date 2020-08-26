@@ -1,9 +1,9 @@
 ---
 title:  "TryHackMe - Internal Writeup"
 search: true
-categories: 
+categories:
+  - Write-Ups 
   - TryHackMe
-  - Write-Ups
   - Linux
 last_modified_at: 2020-08-25T08:05:34-05:00
 ---

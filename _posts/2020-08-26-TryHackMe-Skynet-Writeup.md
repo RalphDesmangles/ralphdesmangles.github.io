@@ -1,6 +1,6 @@
 ---
 title:  "TryHackMe - Skynet"
-excerpt: "ss"
+excerpt: "Skynet is a terminator themed linux machine, that is part of [TryHackMe's Offensive Pentesting Learning Path](https://tryhackme.com/path/outline/OSCP). First, the admin's email credentials are found through anonymous access of an SMB Share. Then we found the admin's SMB password from his emails. From there, we found another share belonging to the admin. We find a hidden CMS that was running on Port 80, which we exploit to gain an initial shell. Then expoit a wildcard vulnerability in a Tar backup script."
 date: 2020-08-26
 
 categories:
@@ -10,6 +10,8 @@ tags:
   - Linux
   - SMB
   - Remote File Inclusion
+  - Local File Inclusion
+  - CMS
 ---
 ## Introduction
 ![](/assets/images/thm-skynet/thumb.png)
@@ -18,11 +20,15 @@ Difficulty Rating: Easy
 
 Creator: [@TryHackMe](https://tryhackme.com/p/tryhackme)
 
-Skynet is a terminator themed linux machine. 
+Skynet is a terminator themed linux machine, that is part of [TryHackMe's Offensive Pentesting Learning Path](https://tryhackme.com/path/outline/OSCP). First, the admin's email credentials are found through anonymous access of an SMB Share. Then we found the admin's SMB password from his emails. From there, we found another share belonging to the admin. We find a hidden CMS that was running on Port 80, which we exploit to gain an initial shell. Then expoit a wildcard vulnerability in a Tar backup script.
 
 ## Summary 
 
-- WordPress Admin had a weak password.
+- Email Credentials found in SMB Share
+- SMB Credentials found in Emails
+- Hidden CMS found on Port 80
+- Exploited the CMS to gain a shell
+- Abused a tar wildcard to gain root
 
 
 ## Tools Used
@@ -102,6 +108,7 @@ For now let's skip SSH on port 22 and enumerate http on port 80 some more.
 
 
 All we have is search engine that does not send out any queries. Let's see if we can enumerate any directories on the webapp.
+
 **GoBuster**
 ```
 root@kali:~# gobuster dir -u http://10.10.156.86 -w /usr/share/wordlists/dirbuster/directory-list-lowercase-2.3-medium.txt -t 50
@@ -195,8 +202,10 @@ root@kali:~# smbmap -R -H 10.10.156.86
         [...]
 ```
 
-Now that we know which files might contain information and which shares they belong to. Using `smbclient` connect to the `anonymous` share and download `attention.txt` and the 3 `log*.txt` files.
+Now that we know which files might contain information and which shares they belong to. Using `smbclient` connect to the `anonymous` share and download `attention.txt` and the three `log*.txt` files.
+
 **SMBClient**
+
 ![](/assets/images/thm-skynet/smbshare.png)
  
  `attention.txt`
@@ -350,7 +359,7 @@ $ echo 'echo "www-data ALL=(root) NOPASSWD: ALL" > /etc/sudoers' > privesc.sh
 $ echo "" > "--checkpoint-action=exec=sh privesc.sh"
 $ echo "" > --checkpoint=1
 ```
-Now if we run an `ls` command on the directory we will see our files in place, ready to run.
+Now if we run an `ls` command on the `/var/www/html/` directory we will see our files in place, ready to run.
 ![](/assets/images/thm-skynet/privesc1.png)
 
 `privesc.sh`

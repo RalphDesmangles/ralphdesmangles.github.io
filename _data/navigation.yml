@@ -1,15 +1,11 @@
 # main links
 main:
-  - title: "Quick-Start Guide"
+  - title: "Write-Ups"
     url: /docs/quick-start-guide/
-  - title: "Posts"
+  - title: "Arhive"
     url: /year-archive/
-  - title: "Categories"
+  - title: "About Me"
     url: /categories/
-  - title: "Tags"
-    url: /tags/
-  - title: "Pages"
-    url: /page-archive/
   - title: "Collections"
     url: /collection-archive/
   - title: "External Link"

@@ -99,25 +99,19 @@ author:
   location         : "Florida"
   email            :
   links:
-    - label: "Email"
-      icon: "fas fa-fw fa-envelope-square"
-       # url: "mailto:your.name@email.com"
-    - label: "Website"
+    - label: "Made Mistakes"
       icon: "fas fa-fw fa-link"
-        #url: "https://your-website.com"
+      url: "https://mademistakes.com"
     - label: "Twitter"
       icon: "fab fa-fw fa-twitter-square"
-      # url: "https://twitter.com/"
-    - label: "Facebook"
-      icon: "fab fa-fw fa-facebook-square"
-      # url: "https://facebook.com/"
+      url: "https://twitter.com/mmistakes"
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
-      # url: "https://github.com/"
+      url: "https://github.com/mmistakes"
     - label: "Instagram"
       icon: "fab fa-fw fa-instagram"
-      # url: "https://instagram.com/"
-
+      url: "https://instagram.com/mmistakes"
+      
 # Site Footer
 footer:
   links:

@@ -1,27 +1,8 @@
 ---
-
 title:  "TryHackMe - Internal Writeup"
 excerpt: "Internal is supposed to be a 'Penetration Testing Challenge' that simulates a security engineer conducting an external, web app, and internal assessment of the provided virtual environment."
 date: 2020-08-24
 
-search: true
-header:
-	teaser: /assets/images/thm-internal/teaser.png
-    teaser_home_page: true
-    icon: /assets/images/tryhackme.webp	
-categories:
-  - Write-Ups 
-  - TryHackMe
-tags:
-  - Linux
-  - WordPress
-  - php
-  - mysql
-  - port-forward
-  - brute-force
-  - Docker
-  - metasploit
-  - Jenkins
 ---
 ![](/assets/images/thm-internal/teaser.png)
 

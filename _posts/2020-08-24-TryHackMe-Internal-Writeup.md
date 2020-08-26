@@ -3,6 +3,8 @@ title:  "TryHackMe - Internal Writeup"
 search: true
 categories: 
   - TryHackMe
+  - Write-Ups
+  - Linux
 last_modified_at: 2020-08-25T08:05:34-05:00
 ---
 ![alt text](https://i.imgur.com/9yN2I9x.png "Internal Pic")
@@ -18,7 +20,7 @@ Internal is supposed to be a 'Penetration Testing Challenge' that simulates a se
 - WordPress Admin had a weak password.
 - Found plain text credentials on WordPress Server
 - Exploited an Internal Jenkins Instance to gain access to a Docker Container
-- Found plain text credentils to root on the Docker Container
+- Found plain text credentials to root on the Docker Container
 
 
 # Enumeration

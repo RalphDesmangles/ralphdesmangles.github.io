@@ -1,9 +1,9 @@
 ---
-layout: single
+
 title:  "TryHackMe - Internal Writeup"
 excerpt: "Internal is supposed to be a 'Penetration Testing Challenge' that simulates a security engineer conducting an external, web app, and internal assessment of the provided virtual environment."
 date: 2020-08-24
-classes: wide
+
 search: true
 header:
 	teaser: /assets/images/thm-internal/teaser.png

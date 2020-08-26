@@ -102,20 +102,12 @@ author:
   github           : "RalphDesmangles"
   linkedin         : "ralph-desmangles-334131152"
   twitter          : "s1zzzz"
+  twitch           : "s1zzurpmane"
   links:
     - label: "Made Mistakes"
       icon: "fas fa-fw fa-linkedin-square"
      # url: "https://www.linkedin.com/in/ralph-desmangles-334131152/"
-    - label: "Twitter"
-      icon: "fab fa-fw fa-twitter-square"
-     # url: "https://twitter.com/s1zzzz"
-    - label: "GitHub"
-      icon: "fab fa-fw fa-github"
-      #url: "https://github.com/RalphDesmangles"
-    - label: "Instagram"
-      icon: "fab fa-fw fa-instagram"
-      #url: "https://instagram.com/mmistakes"
-      
+
 # Site Footer
 footer:
   links:

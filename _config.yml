@@ -95,7 +95,7 @@ analytics:
 author:
   name             : "Ralph Desmangles"
   avatar           : https://media-exp1.licdn.com/dms/image/C4E03AQEe6tuJ8kNAQQ/profile-displayphoto-shrink_200_200/0?e=1603929600&v=beta&t=uALwdb6sKFSaVW8L6JG94lwlUf3FxXEG1xGXxsS-rF0
-  bio              : "Student | CTF Player | Penetration Tester | Gamer"
+  bio              : "Student. CTF Player. Penetration Tester. Gamer"
   location         : "Florida"
   email            :
   links:
@@ -104,7 +104,7 @@ author:
       url: "https://mademistakes.com"
     - label: "Twitter"
       icon: "fab fa-fw fa-twitter-square"
-      url: "https://twitter.com/mmistakes"
+      url: "https://twitter.com/s1zzzz"
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
       url: "https://github.com/mmistakes"

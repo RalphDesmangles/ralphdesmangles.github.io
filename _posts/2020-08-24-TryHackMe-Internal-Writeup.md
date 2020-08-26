@@ -1,13 +1,29 @@
 ---
-title:  "TryHackMe - Internal Writeup"
+layout: single
+title:  TryHackMe - Internal Writeup
+excerpt: "Internal is supposed to be a 'Penetration Testing Challenge' that simulates a security engineer conducting an external, web app, and internal assessment of the provided virtual environment."
+date: 2020-08-24
+classes: wide
 search: true
+header:
+	teaser: /assets/images/thm-internal/teaser.png
+    teaser_home_page: true
+    icon: /assets/images/tryhackme.webp	
 categories:
   - Write-Ups 
   - TryHackMe
+tags:
   - Linux
-last_modified_at: 2020-08-25T08:05:34-05:00
+  - WordPress
+  - php
+  - mysql
+  - port-forward
+  - brute-force
+  - Docker
+  - metasploit
+  - Jenkins
 ---
-![alt text](https://i.imgur.com/9yN2I9x.png "Internal Pic")
+![](/assets/images/thm-internal/teaser.png)
 
 Difficulty Rating: Hard
 
@@ -15,15 +31,20 @@ Creator: [@TheMayor](https://tryhackme.com/p/TheMayor)
 
 Internal is supposed to be a 'Penetration Testing Challenge' that simulates a security engineer conducting an external, web app, and internal assessment of the provided virtual environment. 
 
-# Summary 
+## Summary 
 ***
 - WordPress Admin had a weak password.
 - Found plain text credentials on WordPress Server
 - Exploited an Internal Jenkins Instance to gain access to a Docker Container
 - Found plain text credentials to root on the Docker Container
 
+## Tools Used
+***
+- Autorecon
+- Dirsearch
+- WPScan
 
-# Enumeration
+## Enumeration
 ***
 Before we start let's update our `/etc/hosts/` file to map the `internal.thm` domain to the Machine IP.
 ![alt text](https://i.imgur.com/eMnmF1H.png "/etc/hosts update")

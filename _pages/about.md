@@ -12,6 +12,8 @@ On occasion, I may also include an out-of-ordinary post on topics relating to my
 
 Join me in my journey of Securing the World & Making it a better place!
 
+[CLICK ME for Resume](https://drive.google.com/file/d/1in1EcLq22u79tUiUnhJH8RubGWPmpLYh/view?usp=sharing)
+
 
 ## Talks/Presentations/Projects
 
@@ -31,4 +33,7 @@ Google Drive:
 [Configuring a Windows Firewall](https://docs.google.com/document/d/1WBwFE0-mGYNj1O3SSODnF6_2tuJjiGW8U71LBlEK8tY/edit?usp=sharing)
 
 [Bitcoin & Cryptocurrency Technologies](https://docs.google.com/presentation/d/1Avr7gHmHML_0vV5oAHaqq6nlAeA-FylCK9kf-ub-zBU/edit?usp=sharing)
+
+
+
 

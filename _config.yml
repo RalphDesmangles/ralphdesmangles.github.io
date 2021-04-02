@@ -94,7 +94,7 @@ analytics:
 # Site Author
 author:
   name             : "Ralph Desmangles"
-  avatar           : ![](/assets/images/main/profile.jpg)
+  avatar           : https://i.imgur.com/6QC8w4W.png
   bio              : "Student. CTF Player. Penetration Tester. Gamer"
   location         : "Florida"
   email            :

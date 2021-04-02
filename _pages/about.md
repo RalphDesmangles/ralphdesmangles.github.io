@@ -16,10 +16,12 @@ Join me in my journey of Securing the World & Making it a better place!
 ## Talks/Presentations/Projects
 
 YouTube:
+
 [Local File Inclusions to Remote Code Execution](https://www.youtube.com/watch?v=mpfZE7XEMg4&hd=1)
 
 
 Google Drive:
+
 [Bug Bounty: For Fun & Profit](https://docs.google.com/presentation/d/1wTeotQ7fiDZL_QgiNXw3Af9JI9ulyHYsfUwJfVhx0U4/edit?usp=sharing)
 
 [Local File Inclusions to Remote Code Execution](https://docs.google.com/presentation/d/1HFPkBVe90OkX9YwF6IfgGmlG-vQbbLUitWQ39PmnuD8/edit?usp=sharing)

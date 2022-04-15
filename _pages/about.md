@@ -1,7 +1,8 @@
 ---
-title: "About"
+title: About
 permalink: /about/
 date: 2021-04-2
+published: true
 ---
 
 ## About Me
@@ -34,6 +35,5 @@ Google Drive:
 
 [Bitcoin & Cryptocurrency Technologies](https://docs.google.com/presentation/d/1Avr7gHmHML_0vV5oAHaqq6nlAeA-FylCK9kf-ub-zBU/edit?usp=sharing)
 
-
-
-
+[Photovolatic Enery Production]
+(https://rancs-lab.com/presidents-choice-winner-during-poster-competition/)

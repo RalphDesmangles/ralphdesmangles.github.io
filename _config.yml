@@ -20,7 +20,7 @@ title                    : "Ralph's Security Blog"
 title_separator          : "-"
 subtitle                 : # site tagline that appears below site title in masthead
 name                     : "Ralph Desmangles"
-description              : "Student. CTF Player. Aspiring Penetration Tester. Gamer"
+description              : "Penetration Tester. CTF Player. Gamer"
 url                      : # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : # the subpath of your site, e.g. "/blog"
 repository               : # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
@@ -95,7 +95,7 @@ analytics:
 author:
   name             : "Ralph Desmangles"
   avatar           : https://i.imgur.com/6QC8w4W.png
-  bio              : "Student. CTF Player. Penetration Tester. Gamer"
+  bio              : "Penetration Tester. CTF Player. Gamer"
   location         : "Florida"
   email            :
   #youtube          : "https://youtube.com/c/MichaelRoseDesign"

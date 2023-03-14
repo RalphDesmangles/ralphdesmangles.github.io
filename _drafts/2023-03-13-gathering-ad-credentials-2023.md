@@ -62,8 +62,87 @@ This way we are actively spoofing any LLMNR/NBNS and even MDNS requests that are
 
 Along with relaying hashes, we can also perform protocol downgrade attacks in an active directory environment that still has NTLMv1 in use, which is common for older networks that contain legacy devices such as Windows NT 4, Windows 2000, Windows XP, and Windows Server 2003. 
 
+I will leave this an exercise to the reader with the following resources:
 
-- MITM
+- [NTLM Downgrade Attack Explained]
+- [Practical Attacks Against NTLMv1]
+
+Additionally a larger resource regarding attacks with responder can be found at the following [hackerarticles link]
+
+The next protocol attack we will cover is DHCPv6 Poisoining. By default on Windows environments, IPv6 is enabled and even preffered over IPv6. And furthermore, when a comptuer is boots up, restarts, or a network cable is attached it makes a request for an IPv6 configuration. We can abuse this (feature) in Windows to intercept a machine account authentication attempt over HTTP, which can later be relayed with a tool like [impacket's ntlmrelayx] to perform actions via LDAP. Relaying authentication to LDAP allows attackers to perform attacks such as domain enumeration, ACL attacks, and computer takeover via RBCD abuse. 
+
+
+```
+MITM6 COMMAND
+```
+
+
+
+Now that we have covered the two most common poisoning attacks for initial access let's look at an alternative path to gaining credentials initially. Introducting LDAP Pass back attacks.
+
+# LDAP Pass Back
+
+Often we see printers.
+
+We use a tool like gowitness or eyewitness to identify all webservers. 
+
+
+
+```
+NETCAT COMMAND LISTENER
+```
+
+[CHANGE SETTINGS]
+
+```
+NETCAT RECEIVING CREDS
+```
+
+yay!
+
+```
+TESTING CREDS WITH SOME TOOL
+```
+
+and we can now begin enumeration of the environment.
+
+
+We have now covered three possible ways to gain access from an uncredentialed perspective, it's time to focus on gaining additional credentials from an authenticated perspective.
+
+Once credentials have been obtained, a very common attack for adversaries to perform is kerberoasting. Kerberoasting is an attack whereby an adversary is able to obtain the password by requesting a service ticket for any account configured with a Service Principal Name (SPN). 
+
+
+
+```
+impacket getuserspns.py
+```
+
+The output above shows users configured with an SPN along with the respective hashes for each account configured with an SPN.
+
+```
+HASHCAT
+```
+
+Now we have additional cred!
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 - Kerberoasting
 - GPP
 - Exposed shares

@@ -109,6 +109,8 @@ and we can now begin enumeration of the environment.
 
 We have now covered three possible ways to gain access from an uncredentialed perspective, it's time to focus on gaining additional credentials from an authenticated perspective.
 
+# Kerberoasting
+
 Once credentials have been obtained, a very common attack for adversaries to perform is kerberoasting. Kerberoasting is an attack whereby an adversary is able to obtain the password by requesting a service ticket for any account configured with a Service Principal Name (SPN). 
 
 
@@ -128,27 +130,61 @@ Now we have additional cred!
 
 
 
+# GPP
+
+you'd be surprised man.
+
+
+```
+impacket gpppassword.py
+```
+
+# Exposed shares
+
+manspider dat jawn.
+attackers do this all the time
+
+
+searching for keywords creds
+```
+manspider keyword search
+```
+
+searching for files
+
+```
+manspider files
+```
+
+searching for domain admins in powershell scripts
+```
+maspider domain admin
+```
+
+
+```
+manspider f
+```
+
+*Side Note*
+
+PowerHuntShares good post-da tool
+
+
+# Sniffing Packets
+
+often overlooked, still handy
+pcredz
 
 
 
+I saved this attack for last, because we dont like to lock out accounts
 
 
+# Password spraying
 
+pw spraying is when we try one password with many accounts. we use talon or kerbrute for this.
 
-
-
-
-
-
-
-
-
-- Kerberoasting
-- GPP
-- Exposed shares
-- Password spraying
-- LDAP Pass Back
-- Sniffing Packets
 
 
 # Host-Based

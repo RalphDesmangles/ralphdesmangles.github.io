@@ -17,11 +17,9 @@ Now that we have discussed these protocols, we will focus on attacks specific to
 
 # NetBIOS and LLMNR Spoofing
 
-An NBNS and LLMNR spoofing attack occurs when an attack manipulates broadcast traffic being sent over the network to force an authentication attempt to the attacker machine, rather the requested resource on the respective server. This type of attack is known as a Man-in-the-Middle (MitM). Typically the go-to tool for most testers using Linux is [responder], however, a new tool namely, [pretender], has started to gain some traction. For now we will stick with responder. 
+NetBIOS and LLMNR spoofing attacks involve manipulating broadcast traffic on a network to redirect authentication attempts to the attacker's machine instead of the intended server. This attack is known as a Man-in-the-Middle (MitM) attack, and it can be executed using tools like Responder or the recently popularized Pretender. For this guide, we'll focus on using Responder.
 
-*To perform this attack we must be present on the same local network as our victim machine*
-
-Let's start out by running responder in analyze mode, this mode is preferred when first running the tool to identify if LLMNR/NBNS protocols are in use without affecting the network.
+To carry out this type of attack, the attacker must be on the same local network as the victim machine. Before attempting the attack, it's recommended to run Responder in analyze mode, which allows you to identify if LLMNR/NBNS protocols are in use without impacting the network. As shown in the image below, Responder listens for various network protocols.
 
 [PIC OF RESPONDER IN ANALYZE MODE]
 
@@ -29,7 +27,9 @@ As you can see responder is actively listening for various network protocols tha
 
 [AUTH SIMULATION]
 
-Now if we go back to our responder tab, we will notice a user authentication attempt via SMB to our kali machine. Additionally we notice an NTLMv2 hash which we can take offline and crack with a tool like [hashcat], [john the ripper], or even [npk] (cloud ftw!). For this illustration we will utilize hashcat with the rockyou wordlist. Take the full NTLMv2 hash as is, and put this into a text file named hash.txt
+As a result, we will see a user authentication attempt via SMB to our attacker machine in the Responder tab. We can also obtain an NTLMv2 hash from this authentication attempt, which can be cracked with tools like hashcat, john the ripper, or npk.
+
+In this example, we'll use hashcat with the rockyou wordlist. To begin, save the full NTLMv2 hash in a text file named hash.txt.
 
 `hash.txt`
 ```
